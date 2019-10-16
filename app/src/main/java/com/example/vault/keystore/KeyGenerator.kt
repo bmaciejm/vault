@@ -1,16 +1,16 @@
-package com.example.testgeoloc.keystore
+package com.example.vault.keystore
 
-import com.example.testgeoloc.common.LockScreenGuard
+import com.example.vault.common.MarshmallowHelper
 import java.security.KeyPair
 import java.security.KeyPairGenerator
 
-class KeyGenerator {
+class KeyGenerator(private val marshmallowHelper: MarshmallowHelper) {
 
 
     fun createAndroidKeyStoreAsymmetricKey(): KeyPair{
         val generator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore")
 
-        if(LockScreenGuard.hasMarshmallow()){
+        if(marshmallowHelper.hasMarshmallow()){
 
         }
 

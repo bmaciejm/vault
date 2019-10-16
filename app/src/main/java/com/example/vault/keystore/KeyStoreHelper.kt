@@ -1,4 +1,4 @@
-package com.example.testgeoloc.keystore
+package com.example.vault.keystore
 
 import java.security.KeyStore
 

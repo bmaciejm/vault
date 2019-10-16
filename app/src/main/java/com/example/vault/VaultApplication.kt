@@ -1,8 +1,8 @@
 package com.example.testgeoloc
 
 import android.app.Application
-import com.example.testgeoloc.di.keystoreModule
-import com.example.testgeoloc.di.utilModule
+import com.example.vault.di.keystoreModule
+import com.example.vault.di.utilModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication
@@ -23,6 +23,7 @@ class VaultApplication : Application() {
     private fun KoinApplication.loadAppModules() {
         modules(listOf(
                 utilModule,
-                keystoreModule))
+                keystoreModule
+        ))
     }
 }

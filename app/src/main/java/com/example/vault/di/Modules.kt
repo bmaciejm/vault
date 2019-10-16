@@ -1,20 +1,20 @@
-package com.example.testgeoloc.di
+package com.example.vault.di
 
-import com.example.testgeoloc.keystore.KeyGenerator
-import com.example.testgeoloc.keystore.KeyStoreHelper
-import com.example.testgeoloc.common.LockScreenGuard
-import com.example.testgeoloc.common.MarshmallowHelper
+import com.example.vault.keystore.KeyGenerator
+import com.example.vault.keystore.KeyStoreHelper
+import com.example.vault.common.LockScreenGuard
+import com.example.vault.common.MarshmallowHelper
 import org.koin.dsl.module
 
 val utilModule = module {
     factory { MarshmallowHelper() }
 
-    single { LockScreenGuard(get()) }
+    single { LockScreenGuard(get(), get()) }
 }
 
 
-val keystoreModule = module{
-    single { KeyStoreHelper() }
+val keystoreModule = module {
+    factory { KeyStoreHelper() }
 
-    single { KeyGenerator() }
+    single { KeyGenerator(get()) }
 }

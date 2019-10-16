@@ -1,4 +1,4 @@
-package com.example.testgeoloc.common
+package com.example.vault.common
 
 import android.os.Build
 

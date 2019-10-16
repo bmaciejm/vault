@@ -1,27 +1,30 @@
-package com.example.testgeoloc.common
+package com.example.vault.common
 
 import android.app.AlertDialog
 import android.app.KeyguardManager
 import android.content.Context
-import android.os.Build
 import com.example.testgeoloc.BuildConfig
+import com.example.vault.common.MarshmallowHelper
 
-class LockScreenGuard(private val context: Context) {
+class LockScreenGuard(
+    private val context: Context,
+    private val marshmallowHelper: MarshmallowHelper
+) {
 
     private val keyGuardManager by lazy { context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager }
 
-    fun isDeviceSecure() =
-        if (hasMarshmallow()) keyGuardManager.isDeviceSecure else keyGuardManager.isKeyguardSecure
+    fun doCheck() {
+        if (!isDeviceSecure()) {
+            showDeviceSecurityAlert()
+        }
+    }
 
-    fun showDeviceSecurityAlert() = AlertDialog.Builder(context)
+    private fun isDeviceSecure() =
+        if (marshmallowHelper.hasMarshmallow()) keyGuardManager.isDeviceSecure else keyGuardManager.isKeyguardSecure
+
+    private fun showDeviceSecurityAlert() = AlertDialog.Builder(context)
         .setTitle("Test")
         .setMessage("test")
         .setCancelable(BuildConfig.DEBUG)
         .show()
-
-
-
-    companion object{
-        fun hasMarshmallow() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-    }
 }
