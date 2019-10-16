@@ -1,10 +1,11 @@
-package com.example.vault.common
+package com.example.vault.common.lock
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.KeyguardManager
 import android.content.Context
 import com.example.testgeoloc.BuildConfig
-import com.example.vault.common.MarshmallowHelper
+import com.example.vault.common.marshmallow.MarshmallowHelper
 
 class LockScreenGuard(
     private val context: Context,
@@ -19,8 +20,12 @@ class LockScreenGuard(
         }
     }
 
-    private fun isDeviceSecure() =
-        if (marshmallowHelper.hasMarshmallow()) keyGuardManager.isDeviceSecure else keyGuardManager.isKeyguardSecure
+    // TODO try to play with contracts api to remove suppress or move to methods with targetApi
+    @SuppressLint("NewApi")
+    private fun isDeviceSecure() = marshmallowHelper.doWithMinMarshmallow(
+        { keyGuardManager.isDeviceSecure },
+        { keyGuardManager.isKeyguardSecure }
+    )
 
     private fun showDeviceSecurityAlert() = AlertDialog.Builder(context)
         .setTitle("Test")

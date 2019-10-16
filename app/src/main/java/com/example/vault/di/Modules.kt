@@ -1,9 +1,9 @@
 package com.example.vault.di
 
 import com.example.vault.keystore.KeyGenerator
-import com.example.vault.keystore.KeyStoreHelper
-import com.example.vault.common.LockScreenGuard
-import com.example.vault.common.MarshmallowHelper
+import com.example.vault.keystore.KeyStoreOwner
+import com.example.vault.common.lock.LockScreenGuard
+import com.example.vault.common.marshmallow.MarshmallowHelper
 import org.koin.dsl.module
 
 val utilModule = module {
@@ -14,7 +14,7 @@ val utilModule = module {
 
 
 val keystoreModule = module {
-    factory { KeyStoreHelper() }
+    single { KeyStoreOwner() }
 
-    single { KeyGenerator(get()) }
+    single { KeyGenerator(get(), get()) }
 }
