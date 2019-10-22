@@ -1,4 +1,4 @@
-package com.example.vault.keystore
+package com.bartoszmaciej.vault.keystore
 
 import java.security.KeyStore
 

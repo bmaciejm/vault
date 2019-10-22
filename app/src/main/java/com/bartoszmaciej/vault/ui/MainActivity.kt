@@ -1,9 +1,9 @@
-package com.example.vault.ui
+package com.bartoszmaciej.vault.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.testgeoloc.R
-import com.example.vault.common.lock.LockScreenGuard
+import com.bartoszmaciej.vault.R
+import com.bartoszmaciej.vault.common.lock.LockScreenGuard
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 

@@ -1,8 +1,8 @@
-package com.example.vault
+package com.bartoszmaciej.vault
 
 import android.app.Application
-import com.example.vault.di.keystoreModule
-import com.example.vault.di.utilModule
+import com.bartoszmaciej.vault.di.keystoreModule
+import com.bartoszmaciej.vault.di.utilModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.KoinApplication

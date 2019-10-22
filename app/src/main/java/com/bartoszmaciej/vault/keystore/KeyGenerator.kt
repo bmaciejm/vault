@@ -1,4 +1,4 @@
-package com.example.vault.keystore
+package com.bartoszmaciej.vault.keystore
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -6,7 +6,7 @@ import android.os.Build
 import android.security.KeyPairGeneratorSpec
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
-import com.example.vault.common.marshmallow.MarshmallowHelper
+import com.bartoszmaciej.vault.common.marshmallow.MarshmallowHelper
 import java.math.BigInteger
 import java.security.KeyPair
 import java.security.KeyPairGenerator

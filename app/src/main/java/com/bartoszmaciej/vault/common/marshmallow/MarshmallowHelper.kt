@@ -1,4 +1,4 @@
-package com.example.vault.common.marshmallow
+package com.bartoszmaciej.vault.common.marshmallow
 
 import android.os.Build
 

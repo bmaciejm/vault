@@ -1,11 +1,11 @@
-package com.example.vault.common.lock
+package com.bartoszmaciej.vault.common.lock
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.KeyguardManager
 import android.content.Context
-import com.example.testgeoloc.BuildConfig
-import com.example.vault.common.marshmallow.MarshmallowHelper
+import com.bartoszmaciej.vault.BuildConfig
+import com.bartoszmaciej.vault.common.marshmallow.MarshmallowHelper
 
 class LockScreenGuard(
     private val context: Context,
@@ -27,6 +27,7 @@ class LockScreenGuard(
         { keyGuardManager.isKeyguardSecure }
     )
 
+    // TODO add text and handling for buttons in dialog
     private fun showDeviceSecurityAlert() = AlertDialog.Builder(context)
         .setTitle("Test")
         .setMessage("test")

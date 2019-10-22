@@ -1,4 +1,4 @@
-package com.example.testgeoloc
+package com.bartoszmaciej.vault
 
 import org.junit.Test
 
