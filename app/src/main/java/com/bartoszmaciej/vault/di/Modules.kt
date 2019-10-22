@@ -1,7 +1,8 @@
 package com.bartoszmaciej.vault.di
 
-import com.bartoszmaciej.vault.keystore.KeyGenerator
-import com.bartoszmaciej.vault.keystore.KeyStoreOwner
+import com.bartoszmaciej.vault.assymetric.KeyPairProvider
+import com.bartoszmaciej.vault.assymetric.keystore.KeyPairGenerator
+import com.bartoszmaciej.vault.keystore.owner.AndroidKeystoreOwner
 import com.bartoszmaciej.vault.common.lock.LockScreenGuard
 import com.bartoszmaciej.vault.common.marshmallow.MarshmallowHelper
 import org.koin.dsl.module
@@ -14,7 +15,11 @@ val utilModule = module {
 
 
 val keystoreModule = module {
-    single { KeyStoreOwner() }
+    single { AndroidKeystoreOwner() }
+}
 
-    single { KeyGenerator(get(), get()) }
+val assymetricModule = module {
+    single { KeyPairGenerator(get(), get()) }
+
+    single { KeyPairProvider(get()) }
 }

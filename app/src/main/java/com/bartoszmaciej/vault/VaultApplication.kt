@@ -1,6 +1,7 @@
 package com.bartoszmaciej.vault
 
 import android.app.Application
+import com.bartoszmaciej.vault.di.assymetricModule
 import com.bartoszmaciej.vault.di.keystoreModule
 import com.bartoszmaciej.vault.di.utilModule
 import org.koin.android.ext.koin.androidContext
@@ -24,7 +25,8 @@ class VaultApplication : Application() {
         modules(
             listOf(
                 utilModule,
-                keystoreModule
+                keystoreModule,
+                assymetricModule
             )
         )
     }

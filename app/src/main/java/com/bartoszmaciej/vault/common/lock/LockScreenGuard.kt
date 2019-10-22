@@ -14,7 +14,7 @@ class LockScreenGuard(
 
     private val keyGuardManager by lazy { context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager }
 
-    fun doCheck() {
+    fun check() {
         if (!isDeviceSecure()) {
             showDeviceSecurityAlert()
         }

@@ -19,6 +19,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        lockScreenGuard.doCheck()
+        lockScreenGuard.check()
     }
 }
