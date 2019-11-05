@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Vault</string>
+  <string name="app_name">Vault</string>
+  <string name="lock_screen_dialog_title">Lock screen</string>
+  <string name="lock_screen_dialog_content">Secure lock has not set up. For security reasons you cannot work with this app without it</string>
+  <string name="lock_screen_dialog_positive_button">Settings</string>
+  <string name="lock_screen_dialog_negative_button">Exit</string>
 </resources>

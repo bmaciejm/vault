@@ -11,23 +11,23 @@ import org.koin.core.context.startKoin
 
 class VaultApplication : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
+  override fun onCreate() {
+    super.onCreate()
 
-        startKoin {
-            androidLogger()
-            androidContext(this@VaultApplication)
-            loadAppModules()
-        }
+    startKoin {
+      androidLogger()
+      androidContext(this@VaultApplication)
+      loadAppModules()
     }
+  }
 
-    private fun KoinApplication.loadAppModules() {
-        modules(
-            listOf(
-                utilModule,
-                keystoreModule,
-                asymmetricModule
-            )
-        )
-    }
+  private fun KoinApplication.loadAppModules() {
+    modules(
+      listOf(
+        utilModule,
+        keystoreModule,
+        asymmetricModule
+      )
+    )
+  }
 }

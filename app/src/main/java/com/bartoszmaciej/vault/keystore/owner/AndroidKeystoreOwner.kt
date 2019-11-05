@@ -5,12 +5,12 @@ import java.security.KeyStore
 
 class AndroidKeystoreOwner : KeystoreOwner {
 
-    override val keyStore: KeyStore by lazy { provideKeystore() }
+  override val keyStore: KeyStore by lazy { provideKeystore() }
 
-    override fun removeKey(alias: String) = keyStore.deleteEntry(alias)
+  override fun removeKey(alias: String) = keyStore.deleteEntry(alias)
 
-    private fun provideKeystore(): KeyStore =
-        KeyStore.getInstance(KEYSTORE_PROVIDER_ANDROID).apply {
-            load(null)
-        }
+  private fun provideKeystore(): KeyStore =
+    KeyStore.getInstance(KEYSTORE_PROVIDER_ANDROID).apply {
+      load(null)
+    }
 }

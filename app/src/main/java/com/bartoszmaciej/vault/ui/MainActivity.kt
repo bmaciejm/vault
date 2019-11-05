@@ -6,19 +6,20 @@ import com.bartoszmaciej.vault.R
 import com.bartoszmaciej.vault.common.lock.LockScreenGuard
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class MainActivity : AppCompatActivity() {
 
-    private val lockScreenGuard: LockScreenGuard by inject()
+  private val lockScreenGuard: LockScreenGuard by inject { parametersOf(this) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        button.setOnClickListener { }
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    button.setOnClickListener { }
+  }
 
-    override fun onResume() {
-        super.onResume()
-        lockScreenGuard.check()
-    }
+  override fun onResume() {
+    super.onResume()
+    lockScreenGuard.check()
+  }
 }

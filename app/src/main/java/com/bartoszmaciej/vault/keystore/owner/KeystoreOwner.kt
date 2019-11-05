@@ -4,7 +4,7 @@ import java.security.KeyStore
 
 interface KeystoreOwner {
 
-    val keyStore: KeyStore
+  val keyStore: KeyStore
 
-    fun removeKey(alias: String)
+  fun removeKey(alias: String)
 }
