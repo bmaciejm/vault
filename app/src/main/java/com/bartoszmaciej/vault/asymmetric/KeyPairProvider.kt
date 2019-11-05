@@ -1,4 +1,4 @@
-package com.bartoszmaciej.vault.assymetric
+package com.bartoszmaciej.vault.asymmetric
 
 import com.bartoszmaciej.vault.keystore.owner.KeystoreOwner
 import java.security.KeyPair

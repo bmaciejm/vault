@@ -1,4 +1,4 @@
-package com.bartoszmaciej.vault.assymetric.keystore
+package com.bartoszmaciej.vault.asymmetric
 
 import android.annotation.TargetApi
 import android.content.Context
