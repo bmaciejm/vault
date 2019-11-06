@@ -34,29 +34,33 @@ class KeyPairGenerator(
 
   @TargetApi(Build.VERSION_CODES.M)
   private fun initGeneratorWithKeyGen(generator: KeyPairGenerator, alias: String) {
+    val (startDate, endDate) = provideValidityDates()
+
     val builder = KeyGenParameterSpec.Builder(
       alias,
       KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
     )
       .setBlockModes(KeyProperties.BLOCK_MODE_ECB)
       .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_RSA_PKCS1)
+      .setCertificateNotBefore(startDate)
+      .setCertificateNotAfter(endDate)
 
     generator.initialize(builder.build())
   }
 
   // TODO read about security concerns with "old" keystore
   private fun initGeneratorWithKeyPair(generator: KeyPairGenerator, alias: String) {
-    val startDate = Calendar.getInstance()
-    val endDate = Calendar.getInstance()
-    endDate.add(Calendar.YEAR, 10)
+    val (startDate, endDate) = provideValidityDates()
 
     val builder = KeyPairGeneratorSpec.Builder(context)
       .setAlias(alias)
       .setSerialNumber(BigInteger.ONE)
       .setSubject(X500Principal("CN=$alias CA Certificate"))
-      .setStartDate(startDate.time)
-      .setEndDate(endDate.time)
+      .setStartDate(startDate)
+      .setEndDate(endDate)
 
     generator.initialize(builder.build())
   }
+
+  private fun provideValidityDates() = Calendar.getInstance().time to Calendar.getInstance().apply { add(Calendar.YEAR, 10) }.time
 }

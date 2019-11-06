@@ -6,5 +6,5 @@ interface KeystoreOwner {
 
   val keyStore: KeyStore
 
-  fun removeKey(alias: String)
+  fun removeKeyEntry(alias: String)
 }
