@@ -48,7 +48,6 @@ class KeyPairGenerator(
     generator.initialize(builder.build())
   }
 
-  // TODO read about security concerns with "old" keystore
   private fun initGeneratorWithKeyPair(generator: KeyPairGenerator, alias: String) {
     val (startDate, endDate) = provideValidityDates()
 
