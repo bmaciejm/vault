@@ -3,6 +3,7 @@ package com.bartoszmaciej.vault
 import android.app.Application
 import com.bartoszmaciej.vault.di.asymmetricModule
 import com.bartoszmaciej.vault.di.keystoreModule
+import com.bartoszmaciej.vault.di.symmetricModule
 import com.bartoszmaciej.vault.di.utilModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -26,7 +27,8 @@ class VaultApplication : Application() {
       listOf(
         utilModule,
         keystoreModule,
-        asymmetricModule
+        asymmetricModule,
+        symmetricModule
       )
     )
   }

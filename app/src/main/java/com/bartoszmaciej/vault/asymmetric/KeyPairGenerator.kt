@@ -6,14 +6,14 @@ import android.os.Build
 import android.security.KeyPairGeneratorSpec
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
-import com.bartoszmaciej.KEYSTORE_PROVIDER_ANDROID
-import com.bartoszmaciej.KEY_ALGORITHM_RSA
+import com.bartoszmaciej.Algorithms
+import com.bartoszmaciej.Providers
 import com.bartoszmaciej.vault.common.marshmallow.MarshmallowHelper
 import com.bartoszmaciej.vault.keystore.KeyGenerator
 import java.math.BigInteger
 import java.security.KeyPair
 import java.security.KeyPairGenerator
-import java.util.*
+import java.util.Calendar
 import javax.security.auth.x500.X500Principal
 
 class KeyPairGenerator(
@@ -22,7 +22,7 @@ class KeyPairGenerator(
 ) : KeyGenerator<KeyPair> {
 
   override fun generate(alias: String): KeyPair {
-    val generator = KeyPairGenerator.getInstance(KEY_ALGORITHM_RSA, KEYSTORE_PROVIDER_ANDROID)
+    val generator = KeyPairGenerator.getInstance(Algorithms.KEY_ALGORITHM_RSA, Providers.ANDROID_KEYSTORE_PROVIDER)
 
     marshmallowHelper.doWithMinMarshmallow(
       { initGeneratorWithKeyGen(generator, alias) },

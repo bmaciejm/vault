@@ -1,6 +1,6 @@
 package com.bartoszmaciej.vault.keystore.owner
 
-import com.bartoszmaciej.KEYSTORE_PROVIDER_ANDROID
+import com.bartoszmaciej.Providers
 import java.security.KeyStore
 
 class AndroidKeystoreOwner : KeystoreOwner {
@@ -9,7 +9,7 @@ class AndroidKeystoreOwner : KeystoreOwner {
 
   override fun removeKeyEntry(alias: String) = keyStore.deleteEntry(alias)
 
-  private fun provideKeystore(): KeyStore = KeyStore.getInstance(KEYSTORE_PROVIDER_ANDROID).apply {
+  private fun provideKeystore(): KeyStore = KeyStore.getInstance(Providers.ANDROID_KEYSTORE_PROVIDER).apply {
     load(null)
   }
 }

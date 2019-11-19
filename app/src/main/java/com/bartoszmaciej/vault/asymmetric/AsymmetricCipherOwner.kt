@@ -1,15 +1,14 @@
 package com.bartoszmaciej.vault.asymmetric
 
 import android.util.Base64
-import com.bartoszmaciej.TRANSFORMATION_ASYMMETRIC
+import com.bartoszmaciej.Transformations
 import com.bartoszmaciej.vault.cipher.CipherOwner
 import java.security.Key
-
 import javax.crypto.Cipher
 
 class AsymmetricCipherOwner : CipherOwner {
 
-  override val cipher: Cipher by lazy { Cipher.getInstance(TRANSFORMATION_ASYMMETRIC) }
+  override val cipher: Cipher by lazy { Cipher.getInstance(Transformations.TRANSFORMATION_ASYMMETRIC) }
 
   override fun encrypt(data: String, key: Key?): String {
     cipher.init(Cipher.ENCRYPT_MODE, key)

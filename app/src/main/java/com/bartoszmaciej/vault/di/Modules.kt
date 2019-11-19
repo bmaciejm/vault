@@ -11,9 +11,12 @@ import com.bartoszmaciej.vault.common.marshmallow.MarshmallowHelper
 import com.bartoszmaciej.vault.keystore.KeyGenerator
 import com.bartoszmaciej.vault.keystore.owner.AndroidKeystoreOwner
 import com.bartoszmaciej.vault.keystore.owner.KeystoreOwner
+import com.bartoszmaciej.vault.symmetric.DefaultSecretKeyGenerator
+import com.bartoszmaciej.vault.symmetric.SecretKeyGenerator
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import java.security.KeyPair
+import javax.crypto.SecretKey
 
 val utilModule = module {
   factory { MarshmallowHelper() }
@@ -32,10 +35,14 @@ val asymmetricModule = module {
 
   single<CipherOwner>(named("asymmetric")) { AsymmetricCipherOwner() }
 
-  single {
+  factory {
     AsymmetricKeystoreWrapper(get(qualifier = named("android")),
                               get(qualifier = named("asymmetric")),
                               get(),
                               get())
   }
+}
+
+val symmetricModule = module {
+  single<KeyGenerator<SecretKey>> { SecretKeyGenerator(get())  }
 }
