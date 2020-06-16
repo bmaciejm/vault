@@ -23,7 +23,6 @@ class LockScreenGuard(
     }
   }
 
-  // TODO try to play with contracts api to remove suppress or move to methods with targetApi
   @SuppressLint("NewApi")
   private fun isDeviceSecure() = marshmallowHelper.doWithMinMarshmallow(
     { keyGuardManager.isDeviceSecure },

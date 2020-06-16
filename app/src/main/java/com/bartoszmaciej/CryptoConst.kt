@@ -17,5 +17,3 @@ object Transformations {
 
   const val TRANSFORMATION_SYMMETRIC = "AES/CBC/PKCS7Padding"
 }
-
-
