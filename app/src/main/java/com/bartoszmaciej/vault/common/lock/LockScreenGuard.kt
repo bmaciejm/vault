@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.KeyguardManager
 import android.content.Context
+import androidx.core.content.getSystemService
 import com.bartoszmaciej.vault.BuildConfig
 import com.bartoszmaciej.vault.R
 import com.bartoszmaciej.vault.common.ext.openLockScreenSettings
@@ -15,7 +16,7 @@ class LockScreenGuard(
   private val marshmallowHelper: MarshmallowHelper
 ) {
 
-  private val keyGuardManager by lazy { context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager }
+  private val keyGuardManager by lazy { context.getSystemService<KeyguardManager>()!! }
 
   fun check() {
     if (!isDeviceSecure()) {

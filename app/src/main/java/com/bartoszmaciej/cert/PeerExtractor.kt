@@ -1,11 +1,11 @@
 package com.bartoszmaciej.cert
 
+import android.util.Base64
 import java.io.File
 import java.io.FileInputStream
 import java.security.MessageDigest
 import java.security.cert.CertificateFactory
 import java.security.cert.X509Certificate
-import java.util.Base64
 
 object PeerExtractor {
 
@@ -18,7 +18,7 @@ object PeerExtractor {
       val md = MessageDigest.getInstance("SHA-256")
 
       val publicKeySha256 = md.digest(publicKeyEncoded)
-      val publicKeyShaBase256 = Base64.getEncoder().encode(publicKeySha256)
+      val publicKeyShaBase256 = Base64.encode(publicKeySha256, Base64.DEFAULT)
 
       return "sha256/$publicKeyShaBase256"
     }
